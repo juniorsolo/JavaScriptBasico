@@ -1,15 +1,6 @@
-// var tdPeso1 = document.getElementById("peso-1");
-// var tdAltura1 = document.getElementById("altura-1");
-
-// var paciente1 = {"peso": tdPeso1.textContent, "altura": tdAltura1.textContent};
-
-
-// var tdPeso2 = document.getElementById("peso-2");
-// var tdAltura2 = document.getElementById("altura-2");
-
-// var paciente2 = {"peso": tdPeso2.textContent, "altura": tdAltura2.textContent};
-
-// var pacientes = {paciente1, paciente2};
+function calculaImc(paciente){
+	
+}
 
 var trsPacientes = document.getElementsByClassName("paciente");
 
@@ -21,12 +12,22 @@ for(var posicaoAtual = 0 ; posicaoAtual < trsPacientes.length ; posicaoAtual++){
     var tdAltura = pacienteTr.getElementsByClassName("info-altura")[0];
     var tdImc = pacienteTr.getElementsByClassName("info-imc")[0];
 
-	var paciente = {nome: tdNome.textContent, peso: tdPeso.textContent, altura: tdAltura.textContent }; 
+	var pacienteAtual = {nome: tdNome.textContent,
+	                     peso: tdPeso.textContent,
+	                     altura: tdAltura.textContent,
+	                     pegaImc:  function(){
+	                      	if(this.altura != 0){
+							   var imc =  this.peso / (this.altura * this.altura);
+							   console.log(imc);
+							   return imc;
 
-	if(paciente.altura != 0){
-	   var imc = paciente.peso / (paciente.altura * paciente.altura);
-	   tdImc.textContent = imc;
-	   console.log(imc);
+							}else{
+								console.log("Não é possível dividir por zero.");
+							}
 
-	}
+	                     }
+	                  }; 
+    
+    tdImc.textContent = pacienteAtual.pegaImc();
+	
 }
