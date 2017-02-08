@@ -1,4 +1,5 @@
-var trsPacientes = document.getElementsByClassName("paciente");
+function calculaTodosImcs(){
+	var trsPacientes = document.getElementsByClassName("paciente");
 
 percorreArray(trsPacientes, function(pacienteTr){
 
@@ -25,3 +26,14 @@ percorreArray(trsPacientes, function(pacienteTr){
     
     tdImc.textContent = pacienteAtual.pegaImc();
 });
+}
+
+
+ var botao = document.getElementById("calcula-imcs");
+// desta foma não da pra colocar 2 eventos onclick, sempre ira pega o ultimo
+// botao.onclick = calculaTodosImcs;
+
+botao.addEventListener("click",calculaTodosImcs);
+botao.addEventListener("click",function(){
+	console.log("Calculando imcs...");
+})
